@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/23 15:31:45 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/05 16:31:31 by yohwang          ###   ########.fr       */
+/*   Created: 2022/02/05 16:26:50 by yohwang           #+#    #+#             */
+/*   Updated: 2022/02/05 16:30:23 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+size_t ft_strlen(const char *s)
+{
+	size_t	size;
 
-void	ft_putstr(char *s, int fd);
-size_t	ft_strlen(const char *s);
+	size = 0;
+	while (s[size] != '\0')
+		size++;
+	return (size);
+}
 
-#endif
+void	ft_putchar(char c, int fd)
+{
+	if (s)
+		write(fd, s, ft_strlen(s));
+}

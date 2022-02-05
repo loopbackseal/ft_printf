@@ -6,11 +6,11 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/01/23 15:45:48 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/05 16:33:19 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FT_PRINTF_H"
+#include "ft_printf.h"
 
 int	ft_printf(const char *s, ...)
 {
