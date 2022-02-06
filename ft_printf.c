@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/06 18:56:24 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/06 19:33:26 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 void	check_format(char c, va_list ap)
 {
-//	if (c == 'd' || c == 'i' || c == 'u' || c == 'x' || c == 'X')
-	int ju = va_arg(ap, int);
-	char jeon = ju + '0';
-	write(1, &jeon, 1);
-//	else if (c == 'c' || c == '%')
-//	int jujeon = va_arg(ap, int);	
-//	write(1, &jujeon, 1);
-//	else if (c == 's')
-//		write(1, va_arg(ap, int), 1);
-//	else if (c == 'p')
-//		write(1, va_arg(ap, int), 1);
+//	%d
+//	int int_tmp = va_arg(ap, int);
+//	char tmp = int_tmp + '0';
+//	write(1, &tmp, 1);
+//	%c
+	ft_putchar(va_arg(ap,int),1);
+//	%%
+//	ft_putchar('%',1);
+//	%s
+//	%p
+//	%i
+//	%u
+//	%x
+//	%X
 }
 
 int	ft_printf(const char *s, ...)
@@ -53,7 +56,7 @@ int	ft_printf(const char *s, ...)
 
 int main()
 {
-	int c = 7;
+	char c = '7';
 	ft_printf("asdf%d\n", c);
 	int i = printf("%1");
 	printf("%d", i);
