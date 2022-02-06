@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:26:50 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/05 16:30:23 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/06 17:38:26 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ size_t ft_strlen(const char *s)
 
 void	ft_putchar(char c, int fd)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	write(fd, &c, 1);
 }
