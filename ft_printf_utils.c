@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:26:50 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/06 17:38:26 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/13 17:03:48 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,56 @@ size_t ft_strlen(const char *s)
 void	ft_putchar(char c, int fd)
 {
 	write(fd, &c, 1);
+}
+
+long long	count_len(long long n)
+{
+	long long	len;
+
+	len = 1;
+	while (n / 10 > 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len - 1);
+}
+
+long long	calc_len(long long len)
+{
+	long long	ten;
+
+	ten = 1;
+	while (len-- > 0)
+		ten = ten * 10;
+	return (ten);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char		c;
+	long long	num;
+	long long	len;
+
+	if (fd > 0)
+	{
+		if (n < 0)
+		{
+			c = '-';
+			write(fd, &c, 1);
+			num = -1LL * n;
+		}
+		else
+			num = n;
+		len = count_len(num);
+		while (len > 0)
+		{
+			c = num / calc_len(len) + '0';
+			write(fd, &c, 1);
+			num = num % calc_len(len);
+			len--;
+		}
+		c = num + '0';
+		write(fd, &c, 1);
+	}
 }
