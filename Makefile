@@ -6,12 +6,12 @@
 #    By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/06 14:42:46 by yohwang           #+#    #+#              #
-#    Updated: 2022/02/06 14:49:52 by yohwang          ###   ########.fr        #
+#    Updated: 2022/02/19 17:25:10 by yohwang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
-SRC		=	ft_printf.c ft_printf_utils.c
+SRC		=	ft_printf.c ft_printf_utils.c ft_printf_utils2.c
 OBJ		=	$(SRC:.c=.o)
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
