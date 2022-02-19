@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:26:50 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/13 17:03:48 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/19 15:14:25 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ size_t ft_strlen(const char *s)
 	return (size);
 }
 
-void	ft_putchar(char c, int fd)
+int	ft_putchar_len(char c)
 {
-	write(fd, &c, 1);
+	write(1, &c, 1);
+	return (1);
 }
 
 long long	count_len(long long n)
