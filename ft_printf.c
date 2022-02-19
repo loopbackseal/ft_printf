@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/19 15:36:36 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:17:41 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,25 @@ int	check_format(int i, va_list ap, const char *s)
 	}
 //	%c
 	else if (s[i] == 'c')
-		return(ft_putchar_len(va_arg(ap,int));
+		return(ft_putchar_len(va_arg(ap, int));
 //	%%
 	else if (s[i] == '%')
 		return(ft_putchar_len('%'));
 //	%s
 	else if (s[i] == 's')
-		return (ft_putstr_len(va_arg(ap,char *)));
+		return (ft_putstr_len(va_arg(ap, char *)));
 //	%p
+	else if (s[i] == 'p')
+		return (ft_putptr_len(va_arg(ap, unsigned long long)));
 //	%i
+	else if (s[i] == 'i)
+		return (0);
 //	%u
-//	%x
-//	%X
+	else if (s[i] == 'u')
+		return (ft_putunsigned_len(va_arg(ap, unsigned int)));
+//	%x %X
+	else if (s[i] == 'x' || s[i] == 'X')
+		return (ft_puthex_len(va_arg(ap, unsigned int), s[i]));
 	else
 		return (0);
 }
