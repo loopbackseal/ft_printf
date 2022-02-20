@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/19 17:41:03 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/20 13:59:38 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_format(int i, va_list *ap, const char *s)
 	else if (s[i] == 'x' || s[i] == 'X')
 		return (ft_puthex_len(va_arg(ap, unsigned int), s[i]));*/
 	else
-		return (0);
+		return (-1);
 }
 
 int	ft_printf(const char *s, ...)
@@ -58,9 +58,9 @@ int	ft_printf(const char *s, ...)
 		if (s[i] == '%')
 		{
 			flag = check_format(++i, &ap, s);
-			if (!flag)
+			if (flag == -1)
 			{
-				flag++;
+				flag = 1;
 				i--;
 			}
 			len = len - 2 + flag;
@@ -74,6 +74,6 @@ int	ft_printf(const char *s, ...)
 /*
 #include <stdio.h>
 int main() {
-	ft_printf(" %c %c %c \n", '0', 0, '1');
-	printf(" %c %c %c ", '0', 0, '1');
+	ft_printf(" NULL %s NULL \n", (char *)0);
+	printf(" NULL %s NULL ", (char *)0);
 }*/
