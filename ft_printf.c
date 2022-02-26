@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/20 13:59:38 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:56:24 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 int	check_format(int i, va_list *ap, const char *s)
 {
+	long long	int_tmp;
+
 	if (s[i] == 'd')
 	{
-		int int_tmp = va_arg(*ap, int);
+		int_tmp = va_arg(*ap, int);
 		ft_putnbr_fd(int_tmp, 1);
-		return(count_len(int_tmp) + 1);
+		if (int_tmp < 0)
+			return (count_len(-int_tmp) + 2);
+		else
+			return (count_len(int_tmp) + 1);
 	}
 	else if (s[i] == 'c')
-		return(ft_putchar_len(va_arg(*ap, int)));
+		return (ft_putchar_len(va_arg(*ap, int)));
 	else if (s[i] == '%')
-		return(ft_putchar_len('%'));
+		return (ft_putchar_len('%'));
 	else if (s[i] == 's')
 		return (ft_putstr_len(va_arg(*ap, char *)));
 		/*
@@ -74,6 +79,7 @@ int	ft_printf(const char *s, ...)
 /*
 #include <stdio.h>
 int main() {
-	ft_printf(" NULL %s NULL \n", (char *)0);
-	printf(" NULL %s NULL ", (char *)0);
+	int i =	ft_printf(" %d ", -10);
+	printf("%d",i);
+//	printf(" NULL %s NULL ", (char *)0);
 }*/
