@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/26 14:56:24 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/26 18:05:20 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 int	check_format(int i, va_list *ap, const char *s)
 {
-	long long	int_tmp;
+	long long	tmp;
 
-	if (s[i] == 'd')
+	if (s[i] == 'd' || s[i] == 'i')
 	{
-		int_tmp = va_arg(*ap, int);
-		ft_putnbr_fd(int_tmp, 1);
-		if (int_tmp < 0)
-			return (count_len(-int_tmp) + 2);
+		tmp = va_arg(*ap, int);
+		// long long 이 아닌 int를 가져가는 이유는 %d가 4바이트를 필요로 하기 때문 
+		ft_putnbr_fd(tmp, 1);
+		if (tmp < 0)
+			return (count_len(-tmp) + 2);
 		else
-			return (count_len(int_tmp) + 1);
+			return (count_len(tmp) + 1);
 	}
 	else if (s[i] == 'c')
 		return (ft_putchar_len(va_arg(*ap, int)));
+		// int를 가져가는 이유는 바이트패딩 때문!
 	else if (s[i] == '%')
 		return (ft_putchar_len('%'));
 	else if (s[i] == 's')
 		return (ft_putstr_len(va_arg(*ap, char *)));
-		/*
 	else if (s[i] == 'p')
-		return (ft_putptr_len(va_arg(ap, unsigned long long)));
+		return (ft_change2hex(va_arg(*ap, unsigned long long),ft_base(97)));
+	/*
 //	%i
 	else if (s[i] == 'i')
 		return (0);
@@ -79,7 +81,7 @@ int	ft_printf(const char *s, ...)
 /*
 #include <stdio.h>
 int main() {
-	int i =	ft_printf(" %d ", -10);
-	printf("%d",i);
-//	printf(" NULL %s NULL ", (char *)0);
+	int i =	ft_printf(" %p\n", -1);
+	int l = printf(" %p\n", -1);
+	printf("%d %d\n",i,l);
 }*/

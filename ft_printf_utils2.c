@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/20 13:58:58 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/26 18:18:59 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,71 @@ int	ft_putstr_len(char *s)
 		return (ft_strlen(s));
 	}
 }
-/* 다시 할 것!
-int	ft_putptr_len(int s)
+
+char	*ft_strrev(char *str)
 {
-	if (s)
+	char tmp;
+	int i;
+	int j;
+
+	i = 0;
+	j = ft_strlen(str) - 1;
+	while (i < j)
 	{
-		write(1, &s, ft_strlen(&s));
-		return (ft_strlen(&s));
-	} else {
-		return (0);
+		tmp = str[i];
+		str[i] = str[j];
+		str[j] = tmp;
+		j--;
+		i++;
 	}
+	return (str);
 }
-*/		
+
+//65 A 97 a
+char	*ft_base(int flag)
+{
+	char	*hex;
+	int		i;
+
+	hex = malloc(16);
+	if (!hex)
+		return (0);
+	i = 9;
+	hex[0] = '0';
+	hex[1] = '1';
+	hex[2] = '2';
+	hex[3] = '3';
+	hex[4] = '4';
+	hex[5] = '5';
+	hex[6] = '6';
+	hex[7] = '7';
+	hex[8] = '8';
+	hex[9] = '9';
+	while (++i < 16)
+		hex[i] = flag++;
+	return hex;
+}
+
+int	ft_change2hex(unsigned long long i, char *hex)
+{
+	unsigned long long	tmp;
+	int					len;
+
+	if (!hex)
+		return (0);
+	tmp = i;
+	len = 0;
+	write(1, "0x", 2);
+	while (tmp > 15)
+	{
+		write(1, &hex[tmp % 16], 1);
+		len++;
+		tmp = tmp / 16;
+	}
+	write(1, &hex[tmp], 1);
+	len++;
+	free(hex);
+	hex = 0;
+	return (len + 2);
+}
+
