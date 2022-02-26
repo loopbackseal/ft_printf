@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/26 18:18:59 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/26 18:42:31 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,6 @@ int	ft_putstr_len(char *s)
 		return (ft_strlen(s));
 	}
 }
-
-char	*ft_strrev(char *str)
-{
-	char tmp;
-	int i;
-	int j;
-
-	i = 0;
-	j = ft_strlen(str) - 1;
-	while (i < j)
-	{
-		tmp = str[i];
-		str[i] = str[j];
-		str[j] = tmp;
-		j--;
-		i++;
-	}
-	return (str);
-}
-
 //65 A 97 a
 char	*ft_base(int flag)
 {
@@ -74,23 +54,28 @@ char	*ft_base(int flag)
 int	ft_change2hex(unsigned long long i, char *hex)
 {
 	unsigned long long	tmp;
+	char				num[17];
 	int					len;
+	int					idx;
 
 	if (!hex)
 		return (0);
 	tmp = i;
+	idx = 0;
 	len = 0;
 	write(1, "0x", 2);
 	while (tmp > 15)
 	{
-		write(1, &hex[tmp % 16], 1);
+		num[len] = hex[tmp % 16];
 		len++;
 		tmp = tmp / 16;
 	}
-	write(1, &hex[tmp], 1);
-	len++;
+	num[len] = hex[tmp];
+	idx = len + 1;
 	free(hex);
 	hex = 0;
-	return (len + 2);
+	while (len >= 0)
+		write(1, &num[len--], 1);
+	return (idx + 2);
 }
 

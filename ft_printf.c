@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/26 18:05:20 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/26 18:42:47 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ int	ft_printf(const char *s, ...)
 /*
 #include <stdio.h>
 int main() {
-	int i =	ft_printf(" %p\n", -1);
-	int l = printf(" %p\n", -1);
+	int i =	ft_printf("%p\n", 15);
+	int l = printf("%p\n", 15);
 	printf("%d %d\n",i,l);
-}*/
+}
+*/
