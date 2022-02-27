@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:45 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/26 18:14:18 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/27 23:02:27 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void		ft_putnbr_fd(int n, int fd);
 int			ft_putstr_len(char *s);
 char		*ft_base(int flag);
 int			ft_change2hex(unsigned long long i, char *hex);
-char		*ft_strrev(char *str);
+int			ft_putunsigned_len(int n);
 #endif

@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/26 18:42:31 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/27 23:03:03 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,24 @@ int	ft_change2hex(unsigned long long i, char *hex)
 	return (idx + 2);
 }
 
+int ft_putunsigned_len(int n)
+{
+	unsigned long	num;
+	unsigned long	tmp;
+	int					len;
+	char				c;
+
+	num = n;
+	tmp = num;
+	len = count_len(num);
+	while (len > 0)
+	{
+		c = num / calc_len(len) + '0';
+		write(1, &c, 1);
+		num = num % calc_len(len);
+		len--;
+	}
+	c = num + '0';
+	write(1, &c, 1);
+	return (count_len(tmp));
+}
