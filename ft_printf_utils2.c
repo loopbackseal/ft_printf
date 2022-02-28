@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/27 23:03:03 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/02/28 12:31:38 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ int ft_putunsigned_len(int n)
 	int					len;
 	char				c;
 
-	num = n;
+	if (n >= 0)
+		num = n;
+	else
+		num = 4294967296 + n;
 	tmp = num;
 	len = count_len(num);
 	while (len > 0)
@@ -98,5 +101,5 @@ int ft_putunsigned_len(int n)
 	}
 	c = num + '0';
 	write(1, &c, 1);
-	return (count_len(tmp));
+	return (count_len(tmp) + 1);
 }
