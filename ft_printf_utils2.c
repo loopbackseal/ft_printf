@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/28 12:31:38 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/03/01 12:35:16 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_base(int flag)
 	return hex;
 }
 
-int	ft_change2hex(unsigned long long i, char *hex)
+int	ft_change2hex(unsigned long long i, char *hex, int flag)
 {
 	unsigned long long	tmp;
 	char				num[17];
@@ -63,7 +63,8 @@ int	ft_change2hex(unsigned long long i, char *hex)
 	tmp = i;
 	idx = 0;
 	len = 0;
-	write(1, "0x", 2);
+	if (flag == 2)
+		write(1, "0x", 2);
 	while (tmp > 15)
 	{
 		num[len] = hex[tmp % 16];
@@ -76,7 +77,7 @@ int	ft_change2hex(unsigned long long i, char *hex)
 	hex = 0;
 	while (len >= 0)
 		write(1, &num[len--], 1);
-	return (idx + 2);
+	return (idx + flag);
 }
 
 int ft_putunsigned_len(int n)
