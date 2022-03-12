@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/03/01 12:35:16 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:09:38 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_change2hex(unsigned long long i, char *hex, int flag)
 	len = 0;
 	if (flag == 2)
 		write(1, "0x", 2);
-	while (tmp > 15)
+	while (tmp > 15 && len < 6)
 	{
 		num[len] = hex[tmp % 16];
 		len++;

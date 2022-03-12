@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/03/01 12:35:24 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:07:39 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,12 @@ int	ft_printf(const char *s, ...)
 	va_end(ap);
 	return (len);
 }
-/*
+
 #include <stdio.h>
 int main() {
-	int i =	ft_printf("%x\n", 11);
-	int l = printf("%x\n", 11);
+	int i =	ft_printf("%x\n", 9223372036854775807LL);
+	int l = printf("%x\n", 9223372036854775807LL);
 	printf("%d %d\n",i,l);
 }
-*/
+
+
