@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:31:35 by yohwang           #+#    #+#             */
-/*   Updated: 2022/03/05 20:07:39 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/03/13 16:43:52 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	check_format(int i, va_list *ap, const char *s)
 	else if (s[i] == 'p')
 		return (ft_change2hex(va_arg(*ap, unsigned long long),ft_base(97), 2));
 	else if (s[i] == 'x')
-		return (ft_change2hex(va_arg(*ap, unsigned long long), ft_base(97), 0));
+		return (ft_change2hex2(va_arg(*ap, int), ft_base(97)));
 	else if (s[i] == 'u')
 		return (ft_putunsigned_len(va_arg(*ap, int)));
 	else if (s[i] == 'X')
-		return (ft_change2hex(va_arg(*ap, unsigned long long), ft_base(65), 0));
+		return (ft_change2hex2(va_arg(*ap, int), ft_base(65)));
 	else
 		return (-1);
 }
@@ -73,13 +73,10 @@ int	ft_printf(const char *s, ...)
 	}
 	va_end(ap);
 	return (len);
-}
-
+}/*
 #include <stdio.h>
 int main() {
-	int i =	ft_printf("%x\n", 9223372036854775807LL);
-	int l = printf("%x\n", 9223372036854775807LL);
+	int i =	ft_printf("%x\n", -1);
+	int l = printf("%x\n", -1);
 	printf("%d %d\n",i,l);
-}
-
-
+}*/

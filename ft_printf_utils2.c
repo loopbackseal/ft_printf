@@ -6,7 +6,7 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 15:07:52 by yohwang           #+#    #+#             */
-/*   Updated: 2022/03/05 20:09:38 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/03/13 16:43:32 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_change2hex(unsigned long long i, char *hex, int flag)
 	len = 0;
 	if (flag == 2)
 		write(1, "0x", 2);
-	while (tmp > 15 && len < 6)
+	while (tmp > 15)
 	{
 		num[len] = hex[tmp % 16];
 		len++;
@@ -79,6 +79,38 @@ int	ft_change2hex(unsigned long long i, char *hex, int flag)
 		write(1, &num[len--], 1);
 	return (idx + flag);
 }
+
+int	ft_change2hex2(int n, char *hex)
+{
+	unsigned long	num;
+	unsigned long	tmp;
+	char			result[17];
+	int				len;
+	int				idx;
+
+	if (!hex)
+		return (0);
+	if (n >= 0)
+		num = n;
+	else
+		num = 4294967296 + n;
+	tmp = num;
+	idx = 0;
+	len = 0;
+	while (tmp > 15)
+	{
+		result[len] = hex[tmp % 16];
+		len++;
+		tmp = tmp / 16;
+	}
+	result[len] = hex[tmp];
+	idx = len + 1;
+	free(hex);
+	while (len >= 0)
+		write(1, &result[len--], 1);
+	return (idx);
+}
+
 
 int ft_putunsigned_len(int n)
 {
