@@ -6,13 +6,13 @@
 /*   By: yohwang <yohwang@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 16:26:50 by yohwang           #+#    #+#             */
-/*   Updated: 2022/02/28 12:22:34 by yohwang          ###   ########.fr       */
+/*   Updated: 2022/03/13 16:50:12 by yohwang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	size;
 
